@@ -1,0 +1,89 @@
+{
+    "manager_name": "Manager",
+    "manager_number": "80090 07059",
+    "logo_image": "SAY_FONTINA_LOGO.png",
+    "dish_categories": [
+      "Appetizer",
+      "Main Course",
+      "Snack",
+      "Dessert",
+      "Beverage",
+      "Arabic Platter",
+      "Burgers",
+      "Pasta"
+    ],
+    "dishes": [
+      {
+        "dish_name": "Arabic Platter - Falafel",
+        "dish_price": 595,
+        "dish_type": "Non-Vegetarian",
+        "dish_description": "A platter consisting of falafel, hummus, Baba ganoush, muhammara, tzatziki, marinated olives with feta cheese, tabbouleh, and freshly baked pita bread.",
+        "dish_category": "Arabic Platter",
+        "dish_image": "Arabic_Platter_Falafel.jpg"
+      },
+      {
+        "dish_name": "Arabic Platter - Chicken",
+        "dish_price": 695,
+        "dish_type": "Non-Vegetarian",
+        "dish_description": "A platter consisting of premium chicken kebab, hummus, baba ganoush, muhammara, fzatziki, marinated olives with feta cheese, tabbouleh, and freshly baked pita bread.",
+        "dish_category": "Arabic Platter",
+        "dish_image": "Arabic_Platter_Chicken.jpg"
+      },
+      {
+        "dish_name": "Arabic Platter - Tiger Prawns",
+        "dish_price": 795,
+        "dish_type": "Non-Vegetarian",
+        "dish_description": "A platter consisting of 3 pcs of premium grilled tiger prawns, tabbouleh, hummus, tzatziki, muhammara, marinated olives with feta, baba ganoush, and freshly baked pita bread.",
+        "dish_category": "Arabic Platter",
+        "dish_image": "Arabic_Platter_Tiger Prawns.jpg"
+      },
+      {
+        "dish_name": "Arabic Platter - Mutton Kofta",
+        "dish_price": 795,
+        "dish_type": "Vegetarian",
+        "dish_description": "A platter comprising mince mutton kabob, hummus, baba ganoush, muhammara, marinated olives with feta cheese, tabbouleh, tzatziki, and freshly baked pita bread.",
+        "dish_category": "Arabic Platter",
+        "dish_image": "Arabic_Platter_Mutton Kofta.jpg"
+      },
+      {
+        "dish_name": "Indian Spiced Lamb Burger",
+        "dish_price": 495,
+        "dish_type": "Non-Vegetarian",
+        "dish_description": "Inhouse baked bun layered with Indian-spiced lamb patty, fried onions, cheddar cheese, lettuce, and served with fries.",
+        "dish_category": "Burgers",
+        "dish_image": "Indian_Spiced_Lamb_Burger.jpg"
+      },
+      {
+        "dish_name": "Spaghetti Aglio e Olio",
+        "dish_price": "515/595",
+        "dish_type": "Vegetarian",
+        "dish_description": "A classic pasta dish hailing from Naples, featuring the rich flavors of finely sautéed garlic, olive oil, and chili flakes, sundried tomatoes, black olives, adorned with parsley and parmesan. Served with garlic bread on the side.",
+        "dish_category": "Pasta",
+        "dish_image": "Spaghetti_aglio_olio_peperoncino.jpg"
+      },
+      {
+        "dish_name": "Blueberry Cheese Cake Slice",
+        "dish_price": 395,
+        "dish_type": "Vegetarian",
+        "dish_description": "A portion of premium cheesecake accompanied by a drizzle of blueberry coulis.",
+        "dish_category": "Dessert",
+        "dish_image": "4H5A1149.jpg"
+      },
+      {
+        "dish_name": "Fresh Orange And Basil Mojito",
+        "dish_price": 299,
+        "dish_type": "Vegetarian",
+        "dish_description": "Cool down this summer with a refreshing virgin orange basil mojito! It's made with fresh orange chunk, basil, and fresh orange juice top up with soda.",
+        "dish_category": "Beverages",
+        "dish_image": "Orange_and_basil_mojito.jpg"
+      },
+      {
+        "dish_name": "Cappuccino",
+        "dish_price": 265,
+        "dish_type": "Vegetarian",
+        "dish_description": "",
+        "dish_category": "Beverages",
+        "dish_image": "Cappuccino(2).jpg"
+      }
+    ]
+  }
