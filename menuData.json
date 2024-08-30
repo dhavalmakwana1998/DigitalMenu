@@ -89,7 +89,7 @@
     {
       "dish_name": "Arrabiata",
       "dish_price": "₹495/₹550",
-      "dish_type": "Vegetarian",
+      "dish_type": "both",
       "dish_description": "Pasta with vegetables in a zesty tomato sauce, topped with parmesan cheese, served with a side of garlic bread.",
       "dish_category": "Pasta",
       "dish_image": "compressed_Arrabiata_Spaghetti.jpg"
@@ -97,7 +97,7 @@
     {
       "dish_name": "Spaghetti Aglio e Olio",
       "dish_price": "₹515/₹595",
-      "dish_type": "Vegetarian",
+      "dish_type": "both",
       "dish_description": "A classic pasta dish hailing from Naples, featuring the rich flavors of finely sautéed garlic, olive oil, and chili flakes, sundried tomatoes, black olives, adorned with parsley and parmesan. Served with garlic bread on the side.",
       "dish_category": "Pasta",
       "dish_image": "compressed_Spaghetti_aglio olio_peperoncino.jpg"
@@ -105,7 +105,7 @@
     {
       "dish_name": "Penne Pasta Mix Sauce",
       "dish_price": "₹515/₹595",
-      "dish_type": "Vegetarian",
+      "dish_type": "both",
       "dish_description": "Pasta with a blend of cheese and tomato sauces, mixed with vegetables, parmesan cheese, and served with garlic bread on the side.",
       "dish_category": "Pasta",
       "dish_image": "compressed_Penne_pasta_mix_sauce.jpg"
