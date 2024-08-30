@@ -251,7 +251,7 @@
         async function loadData() {
             try {
                 // Fetch the JSON data from your local server
-                return fetchJsonData('./menuData.json');
+                return fetchJsonData('https://raw.githubusercontent.com/dhavalmakwana1998/DigitalMenu/main/menuData.json');
             } catch (error) {
                 console.error('Error fetching the data:', error);
             }
@@ -276,6 +276,7 @@
         loadData().then((res) => {
             $('#loader').remove();
             $('body').css('overflow', '');
+            console.log(res, "RESSS")
             loadMenuItems(res)
             appendManagerInfo(res);
             createTabStructure(res?.dish_categories);
@@ -366,6 +367,7 @@
         }
 
         function createTabStructure(tabs) {
+            console.log("TABS", tabs)
             const tabContainer = document.createElement('div');
             tabContainer.className = 'tab-container';
 
@@ -447,14 +449,9 @@
                         selectedItems.push(tabFilter);
                     }
 
-                    console.log('Selected Filters:', selectedItems);
+                    // const menuData = await fetchJsonData('http://digitalmenu.cresol.in/menuData.json');
+                    loadMenuItems(globalData, selectedItems);
 
-                    try {
-                        // const menuData = await fetchJsonData('http://digitalmenu.cresol.in/menuData.json');
-                        loadMenuItems(globalData, selectedItems);
-                    } catch (error) {
-                        console.error('Error fetching menu data:', error);
-                    }
                 });
             });
         }
@@ -464,7 +461,8 @@
             const $menuList = $('#menu-list');
             $menuList.empty();
             const menu = menuData?.dishes;
-
+            console.log(filters, menu)
+            console.log("Fi", menu?.filter(item => { console.log(item.dish_category, filters.includes(item.dish_category)) }))
             let filteredMenu = filters?.length
                 ? menu?.filter(item => filters.includes(item.dish_category))
                 : menu;
