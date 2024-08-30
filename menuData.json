@@ -1,89 +1,202 @@
 {
-    "manager_name": "Manager",
-    "manager_number": "80090 07059",
-    "logo_image": "SAY_FONTINA_LOGO.png",
-    "dish_categories": [
-      "Appetizer",
-      "Main Course",
-      "Snack",
-      "Dessert",
-      "Beverages",
-      "Arabic Platter",
-      "Burgers",
-      "Pasta"
-    ],
-    "dishes": [
-      {
-        "dish_name": "Arabic Platter - Falafel",
-        "dish_price": "₹595",
-        "dish_type": "Non-Vegetarian",
-        "dish_description": "A platter consisting of falafel, hummus, Baba ganoush, muhammara, tzatziki, marinated olives with feta cheese, tabbouleh, and freshly baked pita bread.",
-        "dish_category": "Arabic Platter",
-        "dish_image": "Arabic_Platter_Falafel.jpg"
-      },
-      {
-        "dish_name": "Arabic Platter - Chicken",
-        "dish_price": "₹695",
-        "dish_type": "Non-Vegetarian",
-        "dish_description": "A platter consisting of premium chicken kebab, hummus, baba ganoush, muhammara, fzatziki, marinated olives with feta cheese, tabbouleh, and freshly baked pita bread.",
-        "dish_category": "Arabic Platter",
-        "dish_image": "Arabic_Platter_Chicken.jpg"
-      },
-      {
-        "dish_name": "Arabic Platter - Tiger Prawns",
-        "dish_price": "₹795",
-        "dish_type": "Non-Vegetarian",
-        "dish_description": "A platter consisting of 3 pcs of premium grilled tiger prawns, tabbouleh, hummus, tzatziki, muhammara, marinated olives with feta, baba ganoush, and freshly baked pita bread.",
-        "dish_category": "Arabic Platter",
-        "dish_image": "Arabic_Platter_Tiger Prawns.jpg"
-      },
-      {
-        "dish_name": "Arabic Platter - Mutton Kofta",
-        "dish_price": "₹795",
-        "dish_type": "Non-Vegetarian",
-        "dish_description": "A platter comprising mince mutton kabob, hummus, baba ganoush, muhammara, marinated olives with feta cheese, tabbouleh, tzatziki, and freshly baked pita bread.",
-        "dish_category": "Arabic Platter",
-        "dish_image": "Arabic_Platter_Mutton Kofta.jpg"
-      },
-      {
-        "dish_name": "Indian Spiced Lamb Burger",
-        "dish_price": "₹495",
-        "dish_type": "Non-Vegetarian",
-        "dish_description": "Inhouse baked bun layered with Indian-spiced lamb patty, fried onions, cheddar cheese, lettuce, and served with fries.",
-        "dish_category": "Burgers",
-        "dish_image": "Indian_Spiced_Lamb_Burger.jpg"
-      },
-      {
-        "dish_name": "Spaghetti Aglio e Olio",
-        "dish_price": "₹515/595",
-        "dish_type": "Vegetarian",
-        "dish_description": "A classic pasta dish hailing from Naples, featuring the rich flavors of finely sautéed garlic, olive oil, and chili flakes, sundried tomatoes, black olives, adorned with parsley and parmesan. Served with garlic bread on the side.",
-        "dish_category": "Pasta",
-        "dish_image": "Spaghetti_aglio_olio_peperoncino.jpg"
-      },
-      {
-        "dish_name": "Blueberry Cheese Cake Slice",
-        "dish_price": "₹395",
-        "dish_type": "Vegetarian",
-        "dish_description": "A portion of premium cheesecake accompanied by a drizzle of blueberry coulis.",
-        "dish_category": "Dessert",
-        "dish_image": "4H5A1149.jpg"
-      },
-      {
-        "dish_name": "Fresh Orange And Basil Mojito",
-        "dish_price": "₹299",
-        "dish_type": "Vegetarian",
-        "dish_description": "Cool down this summer with a refreshing virgin orange basil mojito! It's made with fresh orange chunk, basil, and fresh orange juice top up with soda.",
-        "dish_category": "Beverages",
-        "dish_image": "Orange_and_basil_mojito.jpg"
-      },
-      {
-        "dish_name": "Cappuccino",
-        "dish_price": "₹265",
-        "dish_type": "Vegetarian",
-        "dish_description": "",
-        "dish_category": "Beverages",
-        "dish_image": "Cappuccino(2).jpg"
-      }
-    ]
-  }
+  "manager_name": "Manager",
+  "manager_number": "80090 07059",
+  "logo_image": "SAY_FONTINA_LOGO.png",
+  "dish_categories": [
+    "Appetizers",
+    "Arabic Platter",
+    "Burger",
+    "Pizza",
+    "Pasta",
+    "Rissotto",
+    "Main Course",
+    "Dessert",
+    "Beverages"
+  ],
+  "dishes": [
+    {
+      "dish_name": "Kasundi Prawn with Panzanella Salad",
+      "dish_price": "₹795",
+      "dish_type": "Non-Vegetarian",
+      "dish_description": "Tiger prawns marinated in kasundi, grilled, and paired with cucumber, tomato, onion, peppers, lettuce, and rustic bread cubes, all dressed in vinaigrette.",
+      "dish_category": "Appetizers",
+      "dish_image": "compressed_Kasundi_Prawns_Salad.jpg"
+    },
+    {
+      "dish_name": "Arabic Platter - Falafel",
+      "dish_price": "₹595",
+      "dish_type": "Non-Vegetarian",
+      "dish_description": "A platter consisting of falafel, hummus, Baba ganoush, muhammara, tzatziki, marinated olives with feta cheese, tabbouleh, and freshly baked pita bread.",
+      "dish_category": "Arabic Platter",
+      "dish_image": "compressed_Arabic_Platter_Falafel.jpg"
+    },
+    {
+      "dish_name": "Arabic Platter - Chicken",
+      "dish_price": "₹695",
+      "dish_type": "Non-Vegetarian",
+      "dish_description": "A platter consisting of premium chicken kebab, hummus, Baba ganoush, muhammara, tzatziki, marinated olives with feta cheese, tabbouleh, and freshly baked pita bread.",
+      "dish_category": "Arabic Platter",
+      "dish_image": "compressed_Arabic_Platter_Chicken.jpg"
+    },
+    {
+      "dish_name": "Arabic Platter - Tiger Prawns",
+      "dish_price": "₹795",
+      "dish_type": "Non-Vegetarian",
+      "dish_description": "A platter consisting of 3 pcs of premium grilled tiger prawns, tabbouleh, hummus, tzatziki, muhammara, marinated olives with feta, Baba ganoush, and freshly baked pita bread.",
+      "dish_category": "Arabic Platter",
+      "dish_image": "compressed_Arabic_Platter_Tiger Prawns.jpg"
+    },
+    {
+      "dish_name": "Arabic Platter - Mutton Kofta",
+      "dish_price": "₹795",
+      "dish_type": "Vegetarian",
+      "dish_description": "A platter comprising mince mutton kabob, hummus, Baba ganoush, muhammara, marinated olives with feta cheese, tabbouleh, tzatziki, and freshly baked pita bread.",
+      "dish_category": "Arabic Platter",
+      "dish_image": "compressed_Arabic_Platter_Mutton Kofta.jpg"
+    },
+    {
+      "dish_name": "Indian Spiced Lamb Burger",
+      "dish_price": "₹495",
+      "dish_type": "Non-Vegetarian",
+      "dish_description": "Inhouse baked bun layered with Indian-spiced lamb patty, fried onions, cheddar cheese, lettuce, and served with fries.",
+      "dish_category": "Burger",
+      "dish_image": "compressed_Indian_Spiced_Lamb_Burger.jpg"
+    },
+    {
+      "dish_name": "Garden Fresh",
+      "dish_price": "₹595",
+      "dish_type": "Vegetarian",
+      "dish_description": "Genuine Neapolitan dough topped with homemade herb tomato sauce, topped with grilled, seasonal exotic veggies, and mozzarella.",
+      "dish_category": "Pizza",
+      "dish_image": "compressed_Garden_fresh_pizza.jpg"
+    },
+    {
+      "dish_name": "Bacon Pizza",
+      "dish_price": "₹715",
+      "dish_type": "Non-Vegetarian",
+      "dish_description": "Genuine Neapolitan dough with spread of Bianca sauce, pork bacon, olives, and cheese.",
+      "dish_category": "Pizza",
+      "dish_image": "compressed_Bacon_pizza.jpg"
+    },
+    {
+      "dish_name": "Pepperoni Pizza",
+      "dish_price": "₹745",
+      "dish_type": "Non-Vegetarian",
+      "dish_description": "Genuine Neapolitan dough featuring homemade herb tomato sauce, topped with mozzarella and pork pepperoni.",
+      "dish_category": "Pizza",
+      "dish_image": "compressed_Pepperoni_naples pizza(1).jpg"
+    },
+    {
+      "dish_name": "Arrabiata",
+      "dish_price": "₹495/₹550",
+      "dish_type": "Vegetarian",
+      "dish_description": "Pasta with vegetables in a zesty tomato sauce, topped with parmesan cheese, served with a side of garlic bread.",
+      "dish_category": "Pasta",
+      "dish_image": "compressed_Arrabiata_Spaghetti.jpg"
+    },
+    {
+      "dish_name": "Spaghetti Aglio e Olio",
+      "dish_price": "₹515/₹595",
+      "dish_type": "Vegetarian",
+      "dish_description": "A classic pasta dish hailing from Naples, featuring the rich flavors of finely sautéed garlic, olive oil, and chili flakes, sundried tomatoes, black olives, adorned with parsley and parmesan. Served with garlic bread on the side.",
+      "dish_category": "Pasta",
+      "dish_image": "compressed_Spaghetti_aglio olio_peperoncino.jpg"
+    },
+    {
+      "dish_name": "Penne Pasta Mix Sauce",
+      "dish_price": "₹515/₹595",
+      "dish_type": "Vegetarian",
+      "dish_description": "Pasta with a blend of cheese and tomato sauces, mixed with vegetables, parmesan cheese, and served with garlic bread on the side.",
+      "dish_category": "Pasta",
+      "dish_image": "compressed_Penne_pasta_mix_sauce.jpg"
+    },
+    {
+      "dish_name": "Wild Mushroom and Truffle Risotto",
+      "dish_price": "₹545",
+      "dish_type": "Vegetarian",
+      "dish_description": "A gently crafted Arborio rice dish showcasing an assortment of mushrooms and Parmesan cheese, delivering a creamy texture.",
+      "dish_category": "Rissotto",
+      "dish_image": "compressed_Mushroom_and_truffle risotto.jpg"
+    },
+    {
+      "dish_name": "Prawn Risotto",
+      "dish_price": "₹595",
+      "dish_type": "Non-Vegetarian",
+      "dish_description": "A gently crafted Arborio rice prepared in a cheese sauce with prawns, asparagus, and a touch of lemon zest.",
+      "dish_category": "Rissotto",
+      "dish_image": "compressed_Prawn_Risotto.jpg"
+    },
+    {
+      "dish_name": "Fish and Chips",
+      "dish_price": "₹695",
+      "dish_type": "Non-Vegetarian",
+      "dish_description": "Batter-fried river sole fish served with crispy French fries and a zesty jalapeno tartar sauce.",
+      "dish_category": "Main Course",
+      "dish_image": "compressed_Fish_and_chips.jpg"
+    },
+    {
+      "dish_name": "Classic Tiramisu",
+      "dish_price": "₹395",
+      "dish_type": "Vegetarian",
+      "dish_description": "A sophisticated and decadent layered Italian dessert.",
+      "dish_category": "Dessert",
+      "dish_image": "compressed_Classic_Tiramisu.jpg"
+    },
+    {
+      "dish_name": "Carrot Cake Slice",
+      "dish_price": "₹345",
+      "dish_type": "Vegetarian",
+      "dish_description": "Classical cinnamon spiced carrot cake layered with orange and cream cheese frosting.",
+      "dish_category": "Dessert",
+      "dish_image": "compressed_Carrot_Came_slice.jpg"
+    },
+    {
+      "dish_name": "Blueberry Cheese Cake Slice",
+      "dish_price": "₹395",
+      "dish_type": "Vegetarian",
+      "dish_description": "A portion of premium cheesecake accompanied by a drizzle of blueberry coulis.",
+      "dish_category": "Dessert",
+      "dish_image": "compressed_4H5A1149.jpg"
+    },
+    {
+      "dish_name": "Strawberry Cheese Cake Slice",
+      "dish_price": "₹395",
+      "dish_type": "Vegetarian",
+      "dish_description": "A portion of premium cheesecake accompanied by drizzle of strawberry coulis.",
+      "dish_category": "Dessert",
+      "dish_image": "compressed_Strawberry_Cheesecake.jpg"
+    },
+    {
+      "dish_name": "Fresh Orange And Basil Mojito",
+      "dish_price": "₹299",
+      "dish_type": "Vegetarian",
+      "dish_description": "Cool down this summer with a refreshing virgin orange basil mojito! It's made with fresh orange chunk, basil, and fresh orange juice top up with soda.",
+      "dish_category": "Beverages",
+      "dish_image": "compressed_Orange_and_basil_mojito.jpg"
+    },
+    {
+      "dish_name": "Cucumber And Mints Spritzer",
+      "dish_price": "₹285",
+      "dish_type": "Vegetarian",
+      "dish_description": "Cucumber mint cooler is a refreshing summer beverage with a fantastic combination of cucumber and mint leaves and top up with soda.",
+      "dish_category": "Beverages",
+      "dish_image": "compressed_Cucumber_and_mint_spritzer.jpg"
+    },
+    {
+      "dish_name": "Cappuccino",
+      "dish_price": "₹265",
+      "dish_type": "Vegetarian",
+      "dish_description": "",
+      "dish_category": "Beverages",
+      "dish_image": "compressed_Cappuccino(2).jpg"
+    },
+    {
+      "dish_name": "Peach Iced Tea",
+      "dish_price": "₹240",
+      "dish_type": "Vegetarian",
+      "dish_description": "",
+      "dish_category": "Beverages",
+      "dish_image": "compressed_Peach_ice_tea.jpg"
+    }
+  ]
+}
