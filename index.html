@@ -251,7 +251,8 @@
         async function loadData() {
             try {
                 // Fetch the JSON data from your local server
-                return fetchJsonData('https://raw.githubusercontent.com/dhavalmakwana1998/DigitalMenu/main/menuData.json');
+                return fetchJsonData('https://raw.github.com/dhavalmakwana1998/DigitalMenu/main/menuData.json');
+                // return fetchJsonData('./menuData.json');
             } catch (error) {
                 console.error('Error fetching the data:', error);
             }
