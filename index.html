@@ -451,12 +451,8 @@
                     if (tabFilter === "All") {
                         selectedItems.length = 0;
                     } else {
-                        selectedItems = selectedItems.filter(item => item !== "All");
-                        if (selectedItems.includes(tabFilter)) {
-                            selectedItems = selectedItems.filter(item => item !== tabFilter);
-                        } else {
-                            selectedItems.push(tabFilter);
-                        }
+                        selectedItems.length = 0;
+                        selectedItems.push(tabFilter);
                     }
 
                     // const menuData = await fetchJsonData('http://digitalmenu.cresol.in/menuData.json');
