@@ -540,9 +540,11 @@ header {
 }
 
 .card__info h3 {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 700;
+    display: flex;
     margin: 5px 0;
+    align-items: center;
 }
 
 .card-info-title {
@@ -1444,10 +1446,10 @@ header {
 .form-wrap:hover {
     transform: translateX(0);
 }
-
+/* 
 #form-title {
     display: none;
-}
+} */
 
 #form-title:checked+.form-wrap {
     transform: translateY(0);
@@ -1456,14 +1458,14 @@ header {
 .form-title {
     display: block;
     width: 30px;
-    height: 120px;
-    padding: 13px 0;
+    width: 20px;
+    padding: 12px 0;
     opacity: .8;
     background-color: #000;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     color: #fff;
-    font-size: 0.9rem;
+    font-size: 12px;
     text-transform: uppercase;
     text-align: center;
     cursor: pointer;
@@ -1538,6 +1540,7 @@ header {
 }
 
 .button {
+    -webkit-tap-highlight-color: transparent;
     background-color: transparent;
     color: #FFF;
     font-size: 20px;
@@ -1546,18 +1549,15 @@ header {
     padding: 8px 20px;
     border: 0;
     border-radius: 30px;
-    box-shadow: inset 2px 2px 5px #000000, inset -2px -2px 0px #4b4b4b;
+    box-shadow: 2px 2px 5px #000000, -2px -2px 0px #4b4b4b;
     outline: 0;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 }
 
-.button:hover {
-    box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC;
-}
-
 .button:active {
-    box-shadow: inset 2px 2px 3px #BABECC, inset -2px -2px 3px #FFF;
+    box-shadow: inset 2px 5px #000000,inset -2px -2px 0px #4b4b4b;
+    /* box-shadow: inset 2px 2px 3px #BABECC, inset -2px -2px 3px #FFF; */
 }
 
 .loader {
@@ -1644,6 +1644,11 @@ header {
     font-weight: 600;
 }
 
+.both-type-img{
+    width: 16px;
+    height: auto;
+    margin-right: 3px;
+}
 .circle {
     position: absolute;
     background-color: #51ff51;
@@ -1654,12 +1659,14 @@ header {
 
 .triangle {
     position: absolute;
-    width: 0;
-    height: 0;
-    border-radius: 2px;
-    border-left: 5px solid transparent;
+    background-color: #ff0000;
+    border-radius: 50%;
+    height: 8px;
+    width: 8px;
+    /* border-radius: 2px; */
+    /* border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    border-bottom: 8px solid #ff0000;
+    border-bottom: 8px solid #ff0000; */
 }
 
 /* Begin float */
@@ -2011,7 +2018,8 @@ header {
     }
 
     .card__info h3 {
-        font-size: 15px;
+        font-size: 14px;
+        align-items: center;
     }
 
     .card__info--price {
@@ -2185,10 +2193,6 @@ header {
     .circle--slider .animate.active .animate-img .animate-img__in {
         transform: scale(1.5);
     }
-}
-
-.fab-action {
-    display: none;
 }
 
 html.modal-active,

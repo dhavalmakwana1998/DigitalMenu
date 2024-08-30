@@ -22,14 +22,7 @@
       "dish_category": "Appetizers",
       "dish_image": "compressed_Kasundi_Prawns_Salad.jpg"
     },
-    {
-      "dish_name": "Arabic Platter - Falafel",
-      "dish_price": "₹595",
-      "dish_type": "Non-Vegetarian",
-      "dish_description": "A platter consisting of falafel, hummus, Baba ganoush, muhammara, tzatziki, marinated olives with feta cheese, tabbouleh, and freshly baked pita bread.",
-      "dish_category": "Arabic Platter",
-      "dish_image": "compressed_Arabic_Platter_Falafel.jpg"
-    },
+  
     {
       "dish_name": "Arabic Platter - Chicken",
       "dish_price": "₹695",
@@ -37,22 +30,6 @@
       "dish_description": "A platter consisting of premium chicken kebab, hummus, Baba ganoush, muhammara, tzatziki, marinated olives with feta cheese, tabbouleh, and freshly baked pita bread.",
       "dish_category": "Arabic Platter",
       "dish_image": "compressed_Arabic_Platter_Chicken.jpg"
-    },
-    {
-      "dish_name": "Arabic Platter - Tiger Prawns",
-      "dish_price": "₹795",
-      "dish_type": "Non-Vegetarian",
-      "dish_description": "A platter consisting of 3 pcs of premium grilled tiger prawns, tabbouleh, hummus, tzatziki, muhammara, marinated olives with feta, Baba ganoush, and freshly baked pita bread.",
-      "dish_category": "Arabic Platter",
-      "dish_image": "compressed_Arabic_Platter_Tiger Prawns.jpg"
-    },
-    {
-      "dish_name": "Arabic Platter - Mutton Kofta",
-      "dish_price": "₹795",
-      "dish_type": "Vegetarian",
-      "dish_description": "A platter comprising mince mutton kabob, hummus, Baba ganoush, muhammara, marinated olives with feta cheese, tabbouleh, tzatziki, and freshly baked pita bread.",
-      "dish_category": "Arabic Platter",
-      "dish_image": "compressed_Arabic_Platter_Mutton Kofta.jpg"
     },
     {
       "dish_name": "Indian Spiced Lamb Burger",
@@ -89,15 +66,23 @@
     {
       "dish_name": "Arrabiata",
       "dish_price": "₹495/₹550",
-      "dish_type": "both",
+      "dish_type": "Vegetarian and Non-Vegetarian",
       "dish_description": "Pasta with vegetables in a zesty tomato sauce, topped with parmesan cheese, served with a side of garlic bread.",
       "dish_category": "Pasta",
       "dish_image": "compressed_Arrabiata_Spaghetti.jpg"
     },
     {
+      "dish_name": "Arabic Platter - Mutton Kofta",
+      "dish_price": "₹795",
+      "dish_type": "Vegetarian",
+      "dish_description": "A platter comprising mince mutton kabob, hummus, Baba ganoush, muhammara, marinated olives with feta cheese, tabbouleh, tzatziki, and freshly baked pita bread.",
+      "dish_category": "Arabic Platter",
+      "dish_image": "compressed_Arabic_Platter_Mutton Kofta.jpg"
+    },
+    {
       "dish_name": "Spaghetti Aglio e Olio",
       "dish_price": "₹515/₹595",
-      "dish_type": "both",
+      "dish_type": "Vegetarian and Non-Vegetarian",
       "dish_description": "A classic pasta dish hailing from Naples, featuring the rich flavors of finely sautéed garlic, olive oil, and chili flakes, sundried tomatoes, black olives, adorned with parsley and parmesan. Served with garlic bread on the side.",
       "dish_category": "Pasta",
       "dish_image": "compressed_Spaghetti_aglio olio_peperoncino.jpg"
@@ -105,7 +90,7 @@
     {
       "dish_name": "Penne Pasta Mix Sauce",
       "dish_price": "₹515/₹595",
-      "dish_type": "both",
+      "dish_type": "Vegetarian and Non-Vegetarian",
       "dish_description": "Pasta with a blend of cheese and tomato sauces, mixed with vegetables, parmesan cheese, and served with garlic bread on the side.",
       "dish_category": "Pasta",
       "dish_image": "compressed_Penne_pasta_mix_sauce.jpg"
@@ -117,6 +102,14 @@
       "dish_description": "A gently crafted Arborio rice dish showcasing an assortment of mushrooms and Parmesan cheese, delivering a creamy texture.",
       "dish_category": "Rissotto",
       "dish_image": "compressed_Mushroom_and_truffle risotto.jpg"
+    },
+      {
+      "dish_name": "Arabic Platter - Falafel",
+      "dish_price": "₹595",
+      "dish_type": "Non-Vegetarian",
+      "dish_description": "A platter consisting of falafel, hummus, Baba ganoush, muhammara, tzatziki, marinated olives with feta cheese, tabbouleh, and freshly baked pita bread.",
+      "dish_category": "Arabic Platter",
+      "dish_image": "compressed_Arabic_Platter_Falafel.jpg"
     },
     {
       "dish_name": "Prawn Risotto",
@@ -133,6 +126,14 @@
       "dish_description": "Batter-fried river sole fish served with crispy French fries and a zesty jalapeno tartar sauce.",
       "dish_category": "Main Course",
       "dish_image": "compressed_Fish_and_chips.jpg"
+    },
+    {
+      "dish_name": "Arabic Platter - Tiger Prawns",
+      "dish_price": "₹795",
+      "dish_type": "Non-Vegetarian",
+      "dish_description": "A platter consisting of 3 pcs of premium grilled tiger prawns, tabbouleh, hummus, tzatziki, muhammara, marinated olives with feta, Baba ganoush, and freshly baked pita bread.",
+      "dish_category": "Arabic Platter",
+      "dish_image": "compressed_Arabic_Platter_Tiger Prawns.jpg"
     },
     {
       "dish_name": "Classic Tiramisu",
