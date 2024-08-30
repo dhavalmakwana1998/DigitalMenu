@@ -288,7 +288,7 @@ header {
 .btn {
     display: inline-block;
     padding: .5rem 1.3rem;
-    font-size: .8rem;
+    font-size: 1.1rem;
     border: 2px solid rgb(77 77 77);
     border-radius: 2rem;
     line-height: 1;
@@ -462,7 +462,7 @@ header {
     width: 300px;
     height: 200px;
     overflow: hidden;
-    border-radius: 25px;
+    border-radius: 10px;
     border: 1px solid lavender;
     margin: 20px 60px;
     transition: opacity 0.5s ease-in-out;
@@ -1621,10 +1621,27 @@ header {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid #ff2b44;
+    border: 2px solid #ff0000;
     height: 16px;
     width: 16px;
     margin: 0 5px -3px 0;
+}
+.price-container {
+    display: flex;
+    color: white;
+    
+}
+
+.veg-price {
+    color: #51ff51;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.non-veg-price {
+    color: #ff0000;
+    font-size: 16px;
+    font-weight: 600;
 }
 
 .circle {
@@ -1642,7 +1659,7 @@ header {
     border-radius: 2px;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    border-bottom: 8px solid #ff2b44;
+    border-bottom: 8px solid #ff0000;
 }
 
 /* Begin float */
@@ -2046,7 +2063,6 @@ header {
     /* height: 130px;
         display: flex;
         align-items: center; */
-    overflow: visible;
     margin: 10px !important;
     position: relative;
 }
@@ -2128,9 +2144,8 @@ header {
     }
 
     .card {
-        width: 100%;
+        width: auto;
         margin: 6px 6px !important;
-        overflow: visible;
     }
 
     .circle--slider .animate.active .animate-img .animate-img__in {
@@ -2244,7 +2259,6 @@ body.modal-active {
     padding: 10px;
     font-weight: 500;
     color: grey;
-    text-align: justify;
 }
 
 #modal-container .modal-background .modal .modal-svg {
