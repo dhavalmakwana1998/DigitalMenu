@@ -5,6 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Menu</title>
+    <meta property="og:title" content="Digital Menu" />
+    <meta property="og:description"
+        content="Discover your next meal with Digital Menu! Our easy-to-use platform displays restaurant menus with real, high-quality images of every dish. See exactly what you'll order before you dine, making your choices simple and satisfying. Digital Menu—bringing your meals to life, one picture at a time." />
+    <meta property="og:url" content="https://www.cresol.in" />
+    <meta property="og:image" content="https://www.cresol.in/digitalmenu/images/share.jpeg" />
+    <meta property="og:site_name" content="Digital Menu" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -251,8 +260,7 @@
         async function loadData() {
             try {
                 // Fetch the JSON data from your local server
-                return fetchJsonData('https://raw.github.com/dhavalmakwana1998/DigitalMenu/main/menuData.json');
-                // return fetchJsonData('./menuData.json');
+                return fetchJsonData('./menuData.json');
             } catch (error) {
                 console.error('Error fetching the data:', error);
             }
@@ -268,7 +276,7 @@
                 <span class="non-veg-price">${nonVegPrice}</span>
             </div>`;
             } else if (typeof price === 'string') {
-                return `<p class="food-price">${price}</p>`;
+                return `<p class="${type === 'vegetarian' ? 'veg-price' : 'non-veg-price'} food-price">${price}</p>`;
             } else {
                 return `<p class="food-price">Invalid Price</p>`;
             }
@@ -277,7 +285,6 @@
         loadData().then((res) => {
             $('#loader').remove();
             $('body').css('overflow', '');
-            console.log(res, "RESSS")
             loadMenuItems(res)
             appendManagerInfo(res);
             createTabStructure(res?.dish_categories);
@@ -368,7 +375,7 @@
         }
 
         function createTabStructure(tabs) {
-            console.log("TABS", tabs)
+            const tabList = ["All", ...tabs];
             const tabContainer = document.createElement('div');
             tabContainer.className = 'tab-container';
 
@@ -376,7 +383,7 @@
             tabBackground.className = 'tab-background';
             tabContainer.appendChild(tabBackground);
 
-            tabs?.forEach(tab => {
+            tabList?.forEach(tab => {
                 const tabButton = document.createElement('button');
                 tabButton.className = 'tab-button';
                 tabButton.dataset.tab = tab;
@@ -396,12 +403,6 @@
             function setActiveTab(newTabIndex) {
                 const currentTab = tabButtons[currentActiveTab];
                 const newTab = tabButtons[newTabIndex];
-
-                if (newTab.classList.contains('active')) {
-                    newTab.classList.remove('active');
-                    tabBackground.style.width = '0';
-                    return;
-                }
 
                 tabButtons.forEach(button => button.classList.remove('active'));
                 newTab.classList.add('active');
@@ -429,6 +430,7 @@
 
                 currentActiveTab = newTabIndex;
             }
+            setActiveTab(0)
 
             tabButtons.forEach((button, index) => {
                 button.addEventListener('click', () => setActiveTab(index));
@@ -444,13 +446,15 @@
                 tab.addEventListener('click', async () => {
                     const tabFilter = tab.getAttribute('data-tab');
 
-                    // Toggle the filter selection
-                    if (selectedItems.includes(tabFilter)) {
-                        selectedItems.length = 0
-                        selectedItems = selectedItems.filter(item => item !== tabFilter);
+                    if (tabFilter === "All") {
+                        selectedItems.length = 0;
                     } else {
-                        selectedItems.length = 0
-                        selectedItems.push(tabFilter);
+                        selectedItems = selectedItems.filter(item => item !== "All");
+                        if (selectedItems.includes(tabFilter)) {
+                            selectedItems = selectedItems.filter(item => item !== tabFilter);
+                        } else {
+                            selectedItems.push(tabFilter);
+                        }
                     }
 
                     // const menuData = await fetchJsonData('http://digitalmenu.cresol.in/menuData.json');
@@ -465,8 +469,6 @@
             const $menuList = $('#menu-list');
             $menuList.empty();
             const menu = menuData?.dishes;
-            console.log(filters, menu)
-            console.log("Fi", menu?.filter(item => { console.log(item.dish_category, filters.includes(item.dish_category)) }))
             let filteredMenu = filters?.length
                 ? menu?.filter(item => filters.includes(item.dish_category))
                 : menu;
@@ -503,7 +505,7 @@
                     const safeDescription = description.replace(/'/g, "\\'").replace(/"/g, '\\"');
 
                     const infoIcon = description.length
-                        ? `<i onclick="showPopup('${safeDescription}')" class="info fa fa-info-circle"></i>`
+                        ? `<i onclick="showPopup('${safeDescription}')" style="color:#414141" class="info fa fa-info-circle"></i>`
                         : '';
 
                     const menuItem = $(`

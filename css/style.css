@@ -1980,6 +1980,7 @@ header {
     background-color: orangered;
     transition: width 0.3s, left 0.3s;
     border-radius: 50px;
+    box-shadow: 0px 0px 8px #00000063, 0px 0px 8px #00000063;
 }
 
 @media (max-width: 768px) {
@@ -1992,7 +1993,7 @@ header {
 @media (max-width: 480px) {
     .tab-button {
         font-size: 12px;
-        padding: 12px 10px;
+        padding: 12px 16px;
     }
 }
 
