@@ -439,13 +439,16 @@
             let selectedItems = [];
 
             allTabs.forEach(tab => {
+
                 tab.addEventListener('click', async () => {
                     const tabFilter = tab.getAttribute('data-tab');
 
                     // Toggle the filter selection
                     if (selectedItems.includes(tabFilter)) {
+                        selectedItems.length = 0
                         selectedItems = selectedItems.filter(item => item !== tabFilter);
                     } else {
+                        selectedItems.length = 0
                         selectedItems.push(tabFilter);
                     }
 
