@@ -308,8 +308,7 @@
         }
         async function loadData() {
             try {
-                // const data = await fetchJsonData('./menuData.json');
-                const data = await fetchJsonData('https://raw.githubusercontent.com/dhavalmakwana1998/DigitalMenu/main/menuData.json');
+                const data = await fetchJsonData('./menuData.json');
                 return data;
             } catch (error) {
                 console.error('Error fetching the data:', error);

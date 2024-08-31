@@ -490,19 +490,16 @@ header {
     top: 35px;
     right: 5px;
     color: orangered;
-    background-color: white;
-    border-radius: 100px;
-    padding: 2px;
+    border-radius: 10px;
 }
 
-.info {    
-    padding: 2px;
+.info {
+    background-color: white;
     position: absolute;
     top: 5px;
     right: 5px;
     color: orangered;
-    background-color: white;
-    border-radius: 100px;
+    border-radius: 10px;
 }
 
 .badge-flag {
