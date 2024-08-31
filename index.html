@@ -483,10 +483,12 @@
                 ? menu?.filter(item =>
                     filters.includes(item.dish_category) ||
                     filters.some(filter => {
-                        if (filter.toLowerCase() === 'vegetarian' || filter.toLowerCase() === 'non-vegetarian') {
-                            return item.dish_type.toLowerCase() === filter.toLowerCase();
+                        if (filter.toLowerCase() === 'vegetarian') {
+                            return item.dish_type.toLowerCase() === 'vegetarian' || item.dish_type.toLowerCase() === 'vegetarian and non-vegetarian' || item.dish_type.toLowerCase() === 'both';;
                         }
-                        return item.dish_type.toLowerCase() === 'both' || item.dish_type.toLowerCase() === 'Vegetarian and Non-Vegetarian';
+                        if (filter.toLowerCase() === 'non-vegetarian') {
+                            return item.dish_type.toLowerCase() === 'non-vegetarian' || item.dish_type.toLowerCase() === 'vegetarian and non-vegetarian' || item.dish_type.toLowerCase() === 'both';;
+                        }
                     })
                 )
                 : menu;
