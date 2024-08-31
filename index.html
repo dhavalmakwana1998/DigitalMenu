@@ -69,49 +69,7 @@
                         </li>
                     </ul>
                     <div class="animate-wrapper">
-                        <div class="animate">
-                            <div class="animate-img">
-                                <div class="animate-img__in" data-image="https://i.ibb.co/nRpsxNr/Bacon-pizza.jpg">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="animate">
-                            <div class="animate-img">
-                                <div class="animate-img__in" data-image="https://i.ibb.co/QdrxHDN/4H5A7008.jpg">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="animate">
-                            <div class="animate-img">
-                                <div class="animate-img__in" data-image="https://i.ibb.co/W3SSww2/4H5A4600.jpg">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="animate">
-                            <div class="animate-img">
-                                <div class="animate-img__in" data-image="https://i.ibb.co/yFpMQGf/Croque-madam.jpg">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="animate">
-                            <div class="animate-img">
-                                <div class="animate-img__in"
-                                    data-image="https://i.ibb.co/CV7c2Zp/Grilled-Chicken-Skewers.jpg">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="animate">
-                            <div class="animate-img">
-                                <div class="animate-img__in" data-image="https://i.ibb.co/n1xYxHc/Classic-Tiramisu.jpg">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="animate">
-                            <div class="animate-img">
-                                <div class="animate-img__in" data-image="https://i.ibb.co/3zzMRx2/4H5A0222.jpg">
-                                </div>
-                            </div>
-                        </div>
+                        <!-- Dyanmic image here -->
                     </div>
                     <div class="prev"></div>
                     <div class="next"></div>
@@ -233,6 +191,16 @@
 
     <script src="./js/loader.js"></script>
     <script>
+
+        const animateWrapper = document.querySelector('.animate-wrapper');
+
+        animateWrapper.innerHTML = Array(7).fill().map((img, index) => `
+            <div class="animate">
+                <div class="animate-img">
+                <div class="animate-img__in" data-image="./images/loader/loader_${index + 1}.jpg"></div>
+                </div>
+            </div>
+            `).join('');
         var vert = 'By Cresol'.split("").join("<br/>")
         $('#vert').html(vert);
         // Function to show popup with dish description
@@ -265,7 +233,6 @@
         function openModal(modalType) {
             const modalContainer = document.getElementById('modal-container');
             const modal = modalContainer.querySelector('.modal');
-
             // Remove existing content to avoid duplication
             modal.innerHTML = '';
 
@@ -289,12 +256,13 @@
         function openImageModal(modalType, imgSrc) {
             const modalContainer = document.getElementById('modal-container');
             const modal = modalContainer.querySelector('.modal');
-
+            $(".modal").css("display", "contents")
             // Remove existing content to avoid duplication
             modal.innerHTML = '';
+            const scale = window.innerWidth < 768 ? 1.5 : 1.2;
 
             // Create and append the new content
-            modal.innerHTML = `<div><img width="100%" style="transform:scale(1.5) rotate(90deg)" onclick="closeModal('#modal-container')" src="./images/${imgSrc}" alt="thank-you-envelope" border="0"/></div>`;
+            modal.innerHTML = `<img width="100%" style="transform: scale(${scale}) rotate(90deg);"  onclick="closeModal('#modal-container')" src="./images/${imgSrc}" alt="thank-you-envelope" border="0"/><button onclick="closeModal('#modal-container')" class="btn solid close-image">Close</button>`;
 
             // Show the modal
             $('#modal-container').removeAttr('class').addClass(modalType);
@@ -307,6 +275,7 @@
                 $('body').removeClass('modal-active');
                 $(this).removeClass();
                 // Empty the content inside the modal to prevent duplication
+                $(this).find('.modal').css("display", "inline-block");
                 $(this).find('.modal').empty();
             });
         }
@@ -579,7 +548,7 @@
                         ? `<i onclick="showPopup('${safeDescription}')" class="info fa fa-info-circle"></i>`
                         : '';
                     const imageIcon = image.length
-                        ? `<i onclick="openImageModal('one', '${image}')" class="expand fa-solid fa-maximize"></i>`
+                        ? `<i onclick="openImageModal('two', '${image}')" class="expand fa-solid fa-maximize"></i>`
                         : '';
 
                     const menuItem = $(`
