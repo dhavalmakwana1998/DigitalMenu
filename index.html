@@ -478,16 +478,15 @@
             const $menuList = $('#menu-list');
             $menuList.empty();
             const menu = menuData?.dishes;
-            console.log(menu, filters)
             let filteredMenu = filters?.length
                 ? menu?.filter(item =>
                     filters.includes(item.dish_category) ||
                     filters.some(filter => {
-                        if (filter.toLowerCase() === 'vegetarian') {
-                            return item.dish_type.toLowerCase() === 'vegetarian' || item.dish_type.toLowerCase() === 'vegetarian and non-vegetarian' || item.dish_type.toLowerCase() === 'both';;
+                        if (filter.toLowerCase() === 'vegetarian' || filter.toLowerCase() === 'veg' || filter.toLowerCase() === 'both') {
+                            return item.dish_type.toLowerCase() === 'vegetarian' || item.dish_type.toLowerCase() === 'veg' || item.dish_type.toLowerCase() === 'vegetarian and non-vegetarian' || item.dish_type.toLowerCase() === 'both';;
                         }
-                        if (filter.toLowerCase() === 'non-vegetarian') {
-                            return item.dish_type.toLowerCase() === 'non-vegetarian' || item.dish_type.toLowerCase() === 'vegetarian and non-vegetarian' || item.dish_type.toLowerCase() === 'both';;
+                        if (filter.toLowerCase() === 'non-vegetarian' || filter.toLowerCase() === 'non-veg' || filter.toLowerCase() === 'both') {
+                            return item.dish_type.toLowerCase() === 'non-vegetarian' || item.dish_type.toLowerCase() === 'non-veg' || item.dish_type.toLowerCase() === 'vegetarian and non-vegetarian' || item.dish_type.toLowerCase() === 'both';;
                         }
                     })
                 )
