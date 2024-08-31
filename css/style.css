@@ -481,56 +481,42 @@ header {
 .badge-area-show {
     position: absolute;
     z-index: 1;
-}
-
-.badge-flag-wrap {
-    position: absolute;
-    top: 6px;
-    left: -10px;
+    top:5px;
+    left:5px;
 }
 
 .expand{
     position: absolute;
-    top: 40px;
-    right: 10px;
+    top: 35px;
+    right: 5px;
     color: orangered;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 100px;
     padding: 2px;
 }
 
 .info {    
     padding: 2px;
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 5px;
+    right: 5px;
     color: orangered;
     background-color: white;
-    border-radius: 10px;
-}
-
-.badge-flag-wrap::before {
-    content: "";
-    position: absolute;
-    top: 35px;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0 12px 12px 0;
-    border-color: transparent #d13902 transparent transparent;
+    border-radius: 100px;
 }
 
 .badge-flag {
     text-transform: capitalize;
     color: #ffffff;
-    background: #d13902;
-    box-shadow: 4px 4px 10px 2px rgb(76, 76, 85);
+    background: orangered;
+    box-shadow: 2px 2px 5px 1px rgb(228, 228, 228);
     letter-spacing: 0;
     width: max-content;
     font-size: 14px;
     line-height: 15px;
+    border-radius: 100px;
     font-weight: 600;
-    padding: 10px 20px;
+    padding: 6px 15px;
     display: block;
     text-decoration: none;
 }

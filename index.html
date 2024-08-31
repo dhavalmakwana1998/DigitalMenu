@@ -294,9 +294,7 @@
             modal.innerHTML = '';
 
             // Create and append the new content
-            modal.innerHTML = `
-                <img width="100px" src="${imgSrc}" alt="thank-you-envelope" border="0">                            
-                `;
+            modal.innerHTML = `<div><img width="100%" style="transform:scale(1.5) rotate(90deg)" onclick="closeModal('#modal-container')" src="./images/${imgSrc}" alt="thank-you-envelope" border="0"/></div>`;
 
             // Show the modal
             $('#modal-container').removeAttr('class').addClass(modalType);
@@ -581,7 +579,7 @@
                         ? `<i onclick="showPopup('${safeDescription}')" class="info fa fa-info-circle"></i>`
                         : '';
                     const imageIcon = image.length
-                        ? `<i onclick="showImageModal("one",${image})" class="expand fa-solid fa-maximize"></i>`
+                        ? `<i onclick="openImageModal('one', '${image}')" class="expand fa-solid fa-maximize"></i>`
                         : '';
 
                     const menuItem = $(`
