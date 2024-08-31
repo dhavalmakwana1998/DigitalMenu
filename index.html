@@ -198,23 +198,26 @@
         </div>
         <div id="fab-action" class="fab-action">
             <div class="container">
-                <input id="form-title" type="checkbox" />
                 <div class="form-wrap">
                     <label class="form-title" id="vert">Contact US</label>
-                    <form class="form">
+                    <div class="form">
+                        <h4 style="color:white;padding: 20px 0;">Want a software like this? Contact Us</h4>
                         <div class="form__field">
                             <div class="input-group">
-                                <input class="input-group__input" placeholder="Name" required>
+                                <input class="input-group__input" placeholder="Name" type="text">
                             </div>
                             <div class="input-group">
-                                <input class="input-group__input" placeholder="Email" type="email" required>
+                                <input class="input-group__input" placeholder="Email" type="email">
                             </div>
                             <div class="input-group">
-                                <textarea class="input-group__input" placeholder="Message" required></textarea>
+                                <input class="input-group__input" placeholder="Number" type="text">
+                            </div>
+                            <div class="input-group">
+                                <textarea class="input-group__input" placeholder="Message"></textarea>
                             </div>
                         </div>
-                        <button class="button" type="button">SEND</button>
-                    </form>
+                        <button class="button" id="thanks" onclick="openModal('one')">SEND</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -223,38 +226,93 @@
     <div id="modal-container">
         <div class="modal-background">
             <div class="modal">
-                <div class="popup-content">
-                    <div class="popup-title">
-                        <h5>Description</h5>
-                        <span class="close" onclick="closePopup()">&times;</span>
-                    </div>
-                    <p id="popup-desc" class="full-desc"></p>
-                </div>
+                <!-- Dynamic content will be added here -->
             </div>
         </div>
     </div>
 
     <script src="./js/loader.js"></script>
     <script>
-        var vert = 'CRESOL'.split("").join("<br/>")
+        var vert = 'By Cresol'.split("").join("<br/>")
         $('#vert').html(vert);
         // Function to show popup with dish description
         function showPopup(description) {
-            const popupDesc = document.getElementById('popup-desc');
-            const popup = document.getElementById('modal-container');
+            const modalContainer = document.getElementById('modal-container');
+            const modal = modalContainer.querySelector('.modal');
 
-            if (popupDesc && popup) {
-                $('#modal-container').removeAttr('class').addClass("two");
-                $('body').addClass('modal-active');
-                popupDesc.textContent = description;
-            }
+            // Remove existing content to avoid duplication
+            modal.innerHTML = '';
+
+            // Create and append popup content
+            modal.innerHTML = `
+                    <div class="popup-content">
+                        <div class="popup-title">
+                            <h5>Description</h5>
+                            <span class="close" onclick="closeModal('#modal-container')">
+                                <i class="fa fa-times-circle"></i>
+                            </span>
+                        </div>
+                        <p id="popup-desc" class="full-desc">${description}</p>
+                    </div>
+                `;
+
+            // Show the modal
+            $('#modal-container').removeAttr('class').addClass("two");
+            $('body').addClass('modal-active');
         }
 
-        // Function to close the popup
-        function closePopup() {
-            $("#modal-container").addClass('out');
-            $('body').removeClass('modal-active');
+
+        function openModal(modalType) {
+            const modalContainer = document.getElementById('modal-container');
+            const modal = modalContainer.querySelector('.modal');
+
+            // Remove existing content to avoid duplication
+            modal.innerHTML = '';
+
+            // Create and append the new content
+            modal.innerHTML = `
+                    <div class="popup-content" style="border-radius:10px;background-color:orangered">
+                        <div style="padding:10px">
+                            <img width="100px" src="./images/thankyou.png" alt="thank-you-envelope" border="0">
+                            <h1 style="font-family: 'Kaushan Script', cursive;font-size: 50px;letter-spacing: 3px;color: white;">Thank you!</h1>
+                            <p style="color:white;font-size:20px;margin-bottom:10px"><a target="_blank" href="https://www.cresol.in" style="text-decoration: underline;color: white;">Cresol</a> will contact you soon</p> 
+                            <button onClick="window.location.reload()" style="font-weight: bold;border-radius:10px;color: orangered;border: none;padding: 10px 30px;font-size: 20px;">OK</button>
+                        </div
+                    </div>
+                `;
+
+            // Show the modal
+            $('#modal-container').removeAttr('class').addClass(modalType);
+            $('body').addClass('modal-active');
         }
+
+        function openImageModal(modalType, imgSrc) {
+            const modalContainer = document.getElementById('modal-container');
+            const modal = modalContainer.querySelector('.modal');
+
+            // Remove existing content to avoid duplication
+            modal.innerHTML = '';
+
+            // Create and append the new content
+            modal.innerHTML = `
+                <img width="100px" src="${imgSrc}" alt="thank-you-envelope" border="0">                            
+                `;
+
+            // Show the modal
+            $('#modal-container').removeAttr('class').addClass(modalType);
+            $('body').addClass('modal-active');
+        }
+
+        function closeModal(modalSelector) {
+            $(modalSelector).click(function () {
+                $(this).addClass('out');
+                $('body').removeClass('modal-active');
+                $(this).removeClass();
+                // Empty the content inside the modal to prevent duplication
+                $(this).find('.modal').empty();
+            });
+        }
+
         let globalData = []
         async function fetchJsonData(url) {
             try {
@@ -335,11 +393,7 @@
 
         $input.on("input", function () {
             const searchQuery = $input.val();
-
-            // Show or hide the clear search button based on input length
             $(".clear-search").css("display", searchQuery.length ? "block" : "none");
-
-            // Add processing class to show that the search is being processed
             $finder.addClass("processing").removeClass("active");
 
             // Debounce or delay the API call to avoid making too many requests rapidly
@@ -524,7 +578,10 @@
                     const safeDescription = description.replace(/'/g, "\\'").replace(/"/g, '\\"');
 
                     const infoIcon = description.length
-                        ? `<i onclick="showPopup('${safeDescription}')" style="color: orangered;background: white;border-radius: 100px;" class="info fa fa-info-circle"></i>`
+                        ? `<i onclick="showPopup('${safeDescription}')" class="info fa fa-info-circle"></i>`
+                        : '';
+                    const imageIcon = image.length
+                        ? `<i onclick="showImageModal("one",${image})" class="expand fa-solid fa-maximize"></i>`
                         : '';
 
                     const menuItem = $(`
@@ -533,6 +590,7 @@
                                     <div class="card__image">
                                         <img src="./images/${image}" alt="${name}">
                                         ${infoIcon}
+                                        ${imageIcon}
                                     </div>
                         <div>
                             <div class="card__info">
