@@ -478,8 +478,17 @@
             const $menuList = $('#menu-list');
             $menuList.empty();
             const menu = menuData?.dishes;
+            console.log(menu, filters)
             let filteredMenu = filters?.length
-                ? menu?.filter(item => filters.includes(item.dish_category))
+                ? menu?.filter(item =>
+                    filters.includes(item.dish_category) ||
+                    filters.some(filter => {
+                        if (filter.toLowerCase() === 'vegetarian' || filter.toLowerCase() === 'non-vegetarian') {
+                            return item.dish_type.toLowerCase() === filter.toLowerCase();
+                        }
+                        return item.dish_type.toLowerCase() === 'both' || item.dish_type.toLowerCase() === 'Vegetarian and Non-Vegetarian';
+                    })
+                )
                 : menu;
 
             if (searchQuery) {
