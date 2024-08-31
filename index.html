@@ -389,7 +389,6 @@
         }
 
         function createTabStructure(tabs) {
-            const tabList = ["All", ...tabs];
             const tabContainer = document.createElement('div');
             tabContainer.className = 'tab-container';
 
@@ -397,7 +396,7 @@
             tabBackground.className = 'tab-background';
             tabContainer.appendChild(tabBackground);
 
-            tabList?.forEach(tab => {
+            tabs?.forEach(tab => {
                 const tabButton = document.createElement('button');
                 tabButton.className = 'tab-button';
                 tabButton.dataset.tab = tab;

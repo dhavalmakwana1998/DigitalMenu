@@ -1446,10 +1446,10 @@ header {
 .form-wrap:hover {
     transform: translateX(0);
 }
-/* 
+
 #form-title {
     display: none;
-} */
+}
 
 #form-title:checked+.form-wrap {
     transform: translateY(0);
@@ -1472,7 +1472,7 @@ header {
     user-select: none;
     position: absolute;
     left: 100%;
-    transform: translateY(50%) rotate(0deg);
+    transform: translateY(50%);
     transform-origin: left center;
 }
 
