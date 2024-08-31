@@ -514,7 +514,7 @@
                     const safeDescription = description.replace(/'/g, "\\'").replace(/"/g, '\\"');
 
                     const infoIcon = description.length
-                        ? `<i onclick="showPopup('${safeDescription}')" style="color:#414141" class="info fa fa-info-circle"></i>`
+                        ? `<i onclick="showPopup('${safeDescription}')" style="color: orangered;background: white;border-radius: 100px;" class="info fa fa-info-circle"></i>`
                         : '';
 
                     const menuItem = $(`
@@ -523,7 +523,7 @@
                                     <div class="card__image">
                                         <img src="./images/${image}" alt="${name}">
                                         ${infoIcon}
-                                    </div >
+                                    </div>
                         <div>
                             <div class="card__info">
                                 <div class="card__info--price">
