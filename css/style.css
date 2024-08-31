@@ -1538,6 +1538,7 @@ header {
 }
 
 .loader {
+    overflow: hidden;
     position: absolute;
     top: 0;
     left: 0;
@@ -1548,7 +1549,6 @@ header {
     justify-content: center;
     background-size: cover;
     background-position: center;
-    background-image: url("https://i.ibb.co/4KX2b7s/4H5A7050.jpg");
     z-index: 99999;
 }
 
@@ -1568,6 +1568,22 @@ header {
     z-index: 2;
 }
 
+.poweredby{
+    position: absolute;
+    font-size: 24px;
+    background-color: orangered;
+    padding: 10px 30px;
+    border-radius: 100px;
+    letter-spacing: 3px;
+    color: black;
+    bottom: 10%;
+    z-index: 9;
+    font-weight: bold;
+}
+.poweredby a{
+    color: black;
+    text-decoration: underline;
+}
 .close {
     color: gainsboro;
     font-size: 20px;

@@ -42,6 +42,9 @@
 
 <body style="overflow: hidden;">
     <div class="loader" id="loader">
+        <h3 class="poweredby">
+            Powered
+            By <a href="https://www.cresol.in" target="_blank">Cresol</a></h3>
         <section class="services">
             <div class="circle--slider">
                 <div class="rotate--circle">
@@ -76,6 +79,7 @@
                 </div>
             </div>
         </section>
+
     </div>
     <div class="main-content">
         <div class="container">
@@ -191,9 +195,14 @@
 
     <script src="./js/loader.js"></script>
     <script>
-
+        function setLoaderBackground(imageUrl) {
+            const loader = document.getElementById('loader');
+            if (loader) {
+                loader.style.backgroundImage = `url(${imageUrl})`;
+            }
+        }
+        setLoaderBackground('./images/loader/loader_background.jpg');
         const animateWrapper = document.querySelector('.animate-wrapper');
-
         animateWrapper.innerHTML = Array(7).fill().map((img, index) => `
             <div class="animate">
                 <div class="animate-img">
@@ -202,6 +211,8 @@
             </div>
             `).join('');
         var vert = 'By Cresol'.split("").join("<br/>")
+
+
         $('#vert').html(vert);
         // Function to show popup with dish description
         function showPopup(description) {
@@ -322,7 +333,7 @@
         }
 
         loadData().then((res) => {
-            $('#loader').remove();
+            // setTimeout(() => { $('#loader').remove(); }, 3000)
             $('body').css('overflow', '');
             loadMenuItems(res)
             appendManagerInfo(res);
