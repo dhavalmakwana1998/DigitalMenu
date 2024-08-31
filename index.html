@@ -308,7 +308,7 @@
         }
         async function loadData() {
             try {
-                // return fetchJsonData('./menuData.json');
+                // const data = await fetchJsonData('./menuData.json');
                 const data = await fetchJsonData('https://raw.githubusercontent.com/dhavalmakwana1998/DigitalMenu/main/menuData.json');
                 return data;
             } catch (error) {
@@ -491,6 +491,18 @@
             });
         }
 
+        function scrollToCenter(container, element) {
+            const containerRect = container.getBoundingClientRect();
+            const elementRect = element.getBoundingClientRect();
+            const containerCenter = containerRect.left + containerRect.width / 2;
+            const elementCenter = elementRect.left + elementRect.width / 2;
+            const scrollOffset = elementCenter - containerCenter;
+            container.scrollTo({
+                left: container.scrollLeft + scrollOffset,
+                behavior: 'smooth'
+            });
+        }
+
         function filterActivate() {
             const allTabs = document.querySelectorAll('.tab-button');
             let selectedItems = [];
@@ -499,6 +511,11 @@
 
                 tab.addEventListener('click', async () => {
                     const tabFilter = tab.getAttribute('data-tab');
+
+                    const container = document.getElementById('categories-tabs');
+                    const targetElement = tab; // Pass the clicked tab element
+
+                    scrollToCenter(container, targetElement);
 
                     if (tabFilter === "All") {
                         selectedItems.length = 0;
