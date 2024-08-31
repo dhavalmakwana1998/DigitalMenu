@@ -308,9 +308,9 @@
         }
         async function loadData() {
             try {
-                // Fetch the JSON data from your local server
                 // return fetchJsonData('./menuData.json');
-                return fetchJsonData("https://raw.githubusercontent.com/dhavalmakwana1998/DigitalMenu/main/menuData.json");
+                const data = await fetchJsonData('https://raw.githubusercontent.com/dhavalmakwana1998/DigitalMenu/main/menuData.json');
+                return data;
             } catch (error) {
                 console.error('Error fetching the data:', error);
             }
@@ -333,13 +333,22 @@
         }
 
         loadData().then((res) => {
-            // setTimeout(() => { $('#loader').remove(); }, 3000)
-            $('body').css('overflow', '');
-            loadMenuItems(res)
-            appendManagerInfo(res);
-            createTabStructure(res?.dish_categories);
-            $('#logo').attr('src', `./images/${res?.logo_image}`);
-            filterActivate();
+            if (res) {
+                // Use setTimeout to delay the removal of the loader
+                setTimeout(() => {
+                    $('#loader').remove(); // Remove the loader after 3 seconds
+                    $('body').css('overflow', ''); // Reset body overflow
+                }, 3000); // Delay in milliseconds
+
+                // Proceed with other operations after the loader is removed
+                loadMenuItems(res);
+                appendManagerInfo(res);
+                createTabStructure(res.dish_categories);
+                $('#logo').attr('src', `./images/${res.logo_image}`);
+                filterActivate();
+            } else {
+                console.error('Failed to load data');
+            }
         });
 
         $('.fab-call').click(function () {

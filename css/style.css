@@ -1575,13 +1575,13 @@ header {
     padding: 10px 30px;
     border-radius: 100px;
     letter-spacing: 3px;
-    color: black;
+    color: white;
     bottom: 10%;
     z-index: 9;
     font-weight: bold;
 }
 .poweredby a{
-    color: black;
+    color: white;
     text-decoration: underline;
 }
 .close {
