@@ -492,6 +492,13 @@ header {
     color: orangered;
     border-radius: 10px;
 }
+.error-message{
+    color: #ff4141;
+    display: block;
+    position: absolute;
+    padding: 1px 6px;
+    margin: 0px;
+}
 
 .info {
     background-color: white;
@@ -1502,6 +1509,7 @@ header {
     letter-spacing: 0.1em;
     color: #FFF;
     padding: 12px;
+    margin: 2px 0;
     outline: none;
     border: none;
     border-radius: 10px;

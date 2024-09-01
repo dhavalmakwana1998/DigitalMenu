@@ -132,7 +132,7 @@
                 </div>
             </div>
             <div class="search-bar">
-                <form autocomplete="off">
+                <form autocomplete="off" onsubmit="handleFormSubmit(event)">
                     <div class="finder">
                         <div class="finder__outer">
                             <div class="finder__inner">
@@ -166,19 +166,28 @@
                         <h4 style="color:white;padding: 20px 0;">Want a software like this? Contact Us</h4>
                         <div class="form__field">
                             <div class="input-group">
-                                <input class="input-group__input" placeholder="Name" type="text">
+                                <input class="input-group__input" id="form-name" onblur="validateName()"
+                                    oninput="validateName()" placeholder="Name" type="text">
+                                <small class="error-message" id="nameError"></small>
                             </div>
                             <div class="input-group">
-                                <input class="input-group__input" placeholder="Email" type="email">
+                                <input class="input-group__input" id="form-email" onblur="validateEmail()"
+                                    oninput="validateEmail()" placeholder="Email" type="email">
+                                <small class="error-message" id="emailError"></small>
                             </div>
                             <div class="input-group">
-                                <input class="input-group__input" placeholder="Number" type="text">
+                                <input class="input-group__input" id="form-number" maxlength="10"
+                                    onblur="validateNumber()" oninput="validateNumber()" placeholder="Number"
+                                    type="text">
+                                <small class="error-message" id="numberError"></small>
                             </div>
                             <div class="input-group">
-                                <textarea class="input-group__input" placeholder="Message"></textarea>
+                                <textarea class="input-group__input" id="form-message" onblur="validateMessage()"
+                                    oninput="validateMessage()" placeholder="Message"></textarea>
+                                <small class="error-message" id="messageError"></small>
                             </div>
                         </div>
-                        <button class="button" id="thanks" onclick="openModal('one')">SEND</button>
+                        <button class="button" id="submitButton">SEND</button>
                     </div>
                 </div>
             </div>
@@ -192,7 +201,15 @@
             </div>
         </div>
     </div>
-
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "",
+            });
+        })();
+    </script>
     <script src="./js/loader.js"></script>
     <script>
         function setLoaderBackground(imageUrl) {
@@ -210,19 +227,113 @@
                 </div>
             </div>
             `).join('');
+
         var vert = 'By Cresol'.split("").join("<br/>")
-
-
         $('#vert').html(vert);
+
+
+        function sendEmail() {
+            emailjs.send("", "", {
+                from_name: document.getElementById('form-name').value,
+                to_name: "CRESOL TEAM,", // Replace with the recipient's name
+                message: `${document.getElementById('form-message').value}, Contact : ${document.getElementById('form-number').value}`,
+                reply_to: document.getElementById('form-email').value
+            }).then((response) => {
+                alert("Email sent successfully")
+                console.log("Email sent successfully:", response);
+                openModal('one'); // Open the modal on successful email send
+            }).catch((error) => {
+                console.error("Error sending email:", error);
+            });
+        }
+
+        document.getElementById('submitButton').addEventListener('click', function (event) {
+            event.preventDefault();
+            const isNameValid = validateName();
+            const isEmailValid = validateEmail();
+            const isNumberValid = validateNumber();
+            const isMessageValid = validateMessage();
+
+            if (isNameValid && isEmailValid && isNumberValid && isMessageValid) {
+                sendEmail()
+            }
+        });
+
+        function validateName() {
+            const name = document.getElementById('form-name').value.trim();
+            const namePattern = /^[A-Za-z\s]+$/;
+
+            if (!name) {
+                showError('nameError', 'Name is required.');
+                return false;
+            } else if (!namePattern.test(name)) {
+                showError('nameError', 'Name should contain only alphabets and spaces.');
+                return false;
+            } else {
+                hideError('nameError');
+                return true;
+            }
+        }
+
+        function validateEmail() {
+            const email = document.getElementById('form-email').value.trim();
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!email) {
+                showError('emailError', 'Email is required.');
+                return false;
+            } else if (!emailPattern.test(email)) {
+                showError('emailError', 'Please enter a valid email address.');
+                return false;
+            } else {
+                hideError('emailError');
+                return true;
+            }
+        }
+
+        function validateNumber() {
+            const number = document.getElementById('form-number').value.trim();
+            const numberPattern = /^\d{10}$/;
+
+            if (!number) {
+                showError('numberError', 'Number is required.');
+                return false;
+            } else if (!numberPattern.test(number)) {
+                showError('numberError', 'Please enter a valid 10-digit phone number.');
+                return false;
+            } else {
+                hideError('numberError');
+                return true;
+            }
+        }
+
+        function validateMessage() {
+            const message = document.getElementById('form-message').value.trim();
+
+            if (!message) {
+                showError('messageError', 'Message is required.');
+                return false;
+            } else {
+                hideError('messageError');
+                return true;
+            }
+        }
+        function showError(elementId, message) {
+            const element = document.getElementById(elementId);
+            element.innerText = message;
+            element.style.display = 'block';
+        }
+        function hideError(elementId) {
+            const element = document.getElementById(elementId);
+            element.style.display = 'none';
+            element.innerText = '';
+        }
+
         // Function to show popup with dish description
         function showPopup(description) {
             const modalContainer = document.getElementById('modal-container');
             const modal = modalContainer.querySelector('.modal');
-
-            // Remove existing content to avoid duplication
             modal.innerHTML = '';
-
-            // Create and append popup content
             modal.innerHTML = `
                     <div class="popup-content">
                         <div class="popup-title">
@@ -235,7 +346,6 @@
                     </div>
                 `;
 
-            // Show the modal
             $('#modal-container').removeAttr('class').addClass("two");
             $('body').addClass('modal-active');
         }
@@ -244,10 +354,8 @@
         function openModal(modalType) {
             const modalContainer = document.getElementById('modal-container');
             const modal = modalContainer.querySelector('.modal');
-            // Remove existing content to avoid duplication
             modal.innerHTML = '';
 
-            // Create and append the new content
             modal.innerHTML = `
                     <div class="popup-content" style="border-radius:10px;background-color:orangered">
                         <div style="padding:10px">
@@ -259,7 +367,6 @@
                     </div>
                 `;
 
-            // Show the modal
             $('#modal-container').removeAttr('class').addClass(modalType);
             $('body').addClass('modal-active');
         }
@@ -268,14 +375,11 @@
             const modalContainer = document.getElementById('modal-container');
             const modal = modalContainer.querySelector('.modal');
             $(".modal").css("display", "contents")
-            // Remove existing content to avoid duplication
             modal.innerHTML = '';
             const scale = window.innerWidth < 768 ? 1.5 : 1.2;
 
-            // Create and append the new content
             modal.innerHTML = `<img width="100%" style="transform: scale(${scale}) rotate(90deg);"  onclick="closeModal('#modal-container')" src="./images/${imgSrc}" alt="thank-you-envelope" border="0"/><button onclick="closeModal('#modal-container')" class="btn solid close-image">Close</button>`;
 
-            // Show the modal
             $('#modal-container').removeAttr('class').addClass(modalType);
             $('body').addClass('modal-active');
         }
@@ -285,7 +389,6 @@
                 $(this).addClass('out');
                 $('body').removeClass('modal-active');
                 $(this).removeClass();
-                // Empty the content inside the modal to prevent duplication
                 $(this).find('.modal').css("display", "inline-block");
                 $(this).find('.modal').empty();
             });
@@ -308,7 +411,8 @@
         }
         async function loadData() {
             try {
-                const data = await fetchJsonData('./menuData.json');
+                // const data = await fetchJsonData('./menuData.json');
+                const data = await fetchJsonData('https://raw.githubusercontent.com/dhavalmakwana1998/DigitalMenu/main/menuData.json');
                 return data;
             } catch (error) {
                 console.error('Error fetching the data:', error);
@@ -366,7 +470,7 @@
                 $finder.removeClass("active");
             }
         });
-        let imageUrls = []
+
         function clearSearch() {
             document.getElementById("finder__input").value = "";
             $('.search-bar').toggleClass('show');
@@ -406,6 +510,9 @@
                 $('.mob-cat').toggle(); // Toggle visibility of .mob-cat only when screen size is below 920px
             }
         });
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Prevent the form from submitting and refreshing the page
+        }
         function appendManagerInfo(menuData) {
             const managers = [{ name: menuData.manager_name, number: menuData.manager_number }];
             $('.manager-info-container').empty();
@@ -550,15 +657,34 @@
                 : menu;
 
             if (searchQuery) {
+                const query = searchQuery.toLowerCase().trim();
+
+                const vegetarianTerms = ['vegetarian', 'veg'];
+                const nonVegetarianTerms = ['non-vegetarian', 'non-veg', 'non veg'];
+
+                const isVegetarianSearch = vegetarianTerms.includes(query);
+                const isNonVegetarianSearch = nonVegetarianTerms.includes(query);
+
                 filteredMenu = filteredMenu?.filter(item => {
-                    const query = searchQuery.toLowerCase();
-                    return (
-                        item.dish_name.toLowerCase().includes(query) ||
-                        item.dish_description.toLowerCase().includes(query) ||
-                        item.dish_type.toLowerCase().includes(query) ||
-                        item.dish_category.toLowerCase().includes(query) ||
-                        item.dish_price.toString().toLowerCase().includes(query)
-                    );
+                    const itemName = item.dish_name.toLowerCase();
+                    const itemDescription = item.dish_description.toLowerCase();
+                    const itemType = item.dish_type.toLowerCase();
+                    const itemCategory = item.dish_category.toLowerCase();
+                    const itemPrice = item.dish_price.toString().toLowerCase();
+
+                    const isMatch = itemName.includes(query) ||
+                        itemDescription.includes(query) ||
+                        itemType.includes(query) ||
+                        itemCategory.includes(query) ||
+                        itemPrice.includes(query);
+
+                    if (isVegetarianSearch) {
+                        return isMatch && (itemType === 'vegetarian' || itemType === 'veg' || itemType === 'both' || itemType === 'vegetarian and non-vegetarian');
+                    } else if (isNonVegetarianSearch) {
+                        return isMatch && (itemType === 'non-vegetarian' || itemType === 'non-veg' || itemType === 'non veg' || itemType === 'both' || itemType === 'vegetarian and non-vegetarian');
+                    } else {
+                        return isMatch;
+                    }
                 });
             }
 
