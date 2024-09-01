@@ -201,15 +201,15 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"> -->
     </script>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         (function () {
             emailjs.init({
                 publicKey: "",
             });
         })();
-    </script>
+    </script> -->
     <script src="./js/loader.js"></script>
     <script>
         function setLoaderBackground(imageUrl) {
@@ -228,24 +228,29 @@
             </div>
             `).join('');
 
-        var vert = 'By Cresol'.split("").join("<br/>")
+        var vert = 'Contact US'.split("").join("<br/>")
         $('#vert').html(vert);
 
 
-        function sendEmail() {
-            emailjs.send("", "", {
-                from_name: document.getElementById('form-name').value,
-                to_name: "CRESOL TEAM,", // Replace with the recipient's name
-                message: `${document.getElementById('form-message').value}, Contact : ${document.getElementById('form-number').value}`,
-                reply_to: document.getElementById('form-email').value
-            }).then((response) => {
-                alert("Email sent successfully")
-                console.log("Email sent successfully:", response);
-                openModal('one'); // Open the modal on successful email send
-            }).catch((error) => {
-                console.error("Error sending email:", error);
-            });
-        }
+        // function sendEmail() {
+        //     const submitButton = document.getElementById('submitButton');
+
+        //     submitButton.textContent = 'Sending...';
+        //     submitButton.disabled = true;
+        //     emailjs.send("Service_ID", "template_ID", {
+        //         from_name: document.getElementById('form-name').value,
+        //         to_name: "CRESOL TEAM", // Replace with the recipient's name
+        //         message: `${document.getElementById('form-message').value}, Contact : ${document.getElementById('form-number').value}`,
+        //         reply_to: document.getElementById('form-email').value
+        //     }).then((response) => {
+        //         openModal('one'); // Open the modal on successful email send
+        //     }).catch((error) => {
+        //         console.error("Error sending email:", error);
+        //     }).finally(() => {
+        //         submitButton.textContent = 'SEND';
+        //         submitButton.disabled = false;
+        //     });
+        // }
 
         document.getElementById('submitButton').addEventListener('click', function (event) {
             event.preventDefault();
@@ -255,7 +260,7 @@
             const isMessageValid = validateMessage();
 
             if (isNameValid && isEmailValid && isNumberValid && isMessageValid) {
-                sendEmail()
+                openModal('one');
             }
         });
 
@@ -361,9 +366,9 @@
                         <div style="padding:10px">
                             <img width="100px" src="./images/thankyou.png" alt="thank-you-envelope" border="0">
                             <h1 style="font-family: 'Kaushan Script', cursive;font-size: 50px;letter-spacing: 3px;color: white;">Thank you!</h1>
-                            <p style="color:white;font-size:20px;margin-bottom:10px"><a target="_blank" href="https://www.cresol.in" style="text-decoration: underline;color: white;">Cresol</a> will contact you soon</p> 
+                            <p style="color:white;font-size:20px;margin-bottom:10px">We will contact you soon</p> 
                             <button onClick="window.location.reload()" style="font-weight: bold;border-radius:10px;color: orangered;border: none;padding: 10px 30px;font-size: 20px;">OK</button>
-                        </div
+                        </div>
                     </div>
                 `;
 

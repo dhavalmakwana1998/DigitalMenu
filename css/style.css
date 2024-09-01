@@ -1574,8 +1574,9 @@ header {
 }
 
 .poweredby{
+    display: none;
     position: absolute;
-    font-size: 24px;
+    font-size: 18px;
     background-color: orangered;
     padding: 10px 30px;
     border-radius: 100px;
